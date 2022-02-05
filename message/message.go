@@ -8,7 +8,11 @@ import (
 )
 
 func NewMonthlyTotalMessage(monthlyTotal map[string]int) *linebot.TextMessage {
-	message := "【お支払い金額】"
+	message := "【お支払い予定金額】"
+	if len(monthlyTotal) == 0 {
+		message += "\nなし"
+	}
+
 	for month, total := range monthlyTotal {
 		message += fmt.Sprintf("\n%s %s円", month, strconv.Itoa(total))
 	}
