@@ -67,7 +67,6 @@ func login(page agouti.Page, id string, password string) error {
 }
 
 func selectCard(page agouti.Page, cardName string) error {
-	// TODO: 引数からカードを選択できるようにする
 	if err := page.FindByID("j_idt609:card").Select(cardName); err != nil {
 		return err
 	}
