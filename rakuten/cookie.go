@@ -1,6 +1,7 @@
 package rakuten
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/sclevine/agouti"
@@ -8,7 +9,7 @@ import (
 
 const targetPageUrl = "https://www.rakuten-card.co.jp/e-navi/members/statement/index.xhtml"
 
-func GetLoggedInCookies(id string, password string, cardName string) ([]*http.Cookie, error) {
+func GetLoggedInCookies(id string, password string, selectCardNo string) ([]*http.Cookie, error) {
 	driver := buildHeadlessDriver()
 	defer driver.Stop()
 
@@ -30,7 +31,7 @@ func GetLoggedInCookies(id string, password string, cardName string) ([]*http.Co
 		return nil, err
 	}
 
-	if err := selectCard(*page, cardName); err != nil {
+	if err := selectCard(*page, selectCardNo); err != nil {
 		return nil, err
 	}
 
@@ -66,8 +67,9 @@ func login(page agouti.Page, id string, password string) error {
 	return nil
 }
 
-func selectCard(page agouti.Page, cardName string) error {
-	if err := page.FindByID("j_idt609:card").Select(cardName); err != nil {
+func selectCard(page agouti.Page, selectCardNo string) error {
+	selector := fmt.Sprintf(`#j_idt609\:card > option:nth-child(%s)`, selectCardNo)
+	if err := page.Find(selector).Click(); err != nil {
 		return err
 	}
 

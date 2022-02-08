@@ -12,11 +12,11 @@ import (
 )
 
 var env = map[string]string{
-	"RAKUTEN_ID":          "",
-	"RAKUTEN_PASSWORD":    "",
-	"RAKUTEN_CARD_NAME":   "",
-	"LINE_CHANNEL_SECRET": "",
-	"LINE_CHANNEL_TOKEN":  "",
+	"RAKUTEN_ID":             "",
+	"RAKUTEN_PASSWORD":       "",
+	"RAKUTEN_SELECT_CARD_NO": "",
+	"LINE_CHANNEL_SECRET":    "",
+	"LINE_CHANNEL_TOKEN":     "",
 }
 
 func main() {
@@ -26,7 +26,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	cookies, err := rakuten.GetLoggedInCookies(env["RAKUTEN_ID"], env["RAKUTEN_PASSWORD"], env["RAKUTEN_CARD_NAME"])
+	cookies, err := rakuten.GetLoggedInCookies(env["RAKUTEN_ID"], env["RAKUTEN_PASSWORD"], env["RAKUTEN_SELECT_CARD_NO"])
 	if err != nil {
 		log.Fatal(err)
 	}
