@@ -55,15 +55,12 @@ func main() {
 }
 
 func loadEnv() error {
-	err := godotenv.Load(".env")
-	if err != nil {
-		return err
-	}
+	godotenv.Load(".env")
 
 	for index := range env {
 		_env := os.Getenv(index)
 		if _env == "" {
-			return err
+			return fmt.Errorf("can not find %s", index)
 		}
 		env[index] = _env
 	}
