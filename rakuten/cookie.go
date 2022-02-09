@@ -48,6 +48,10 @@ func buildHeadlessDriver() *agouti.WebDriver {
 		"args", []string{
 			"--headless",
 			"--disable-gpu",
+			"--no-sandbox",
+			"start-maximized",
+			"--disable-dev-shm-usage",
+			"--window-size=1920,1080",
 		})
 	driver := agouti.ChromeDriver(options)
 
