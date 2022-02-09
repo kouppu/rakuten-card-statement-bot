@@ -64,7 +64,7 @@ func login(page agouti.Page, id string, password string) error {
 	idEle.Fill(id)
 	passwordEle.Fill(password)
 
-	if err := page.FindByID("indexForm").Submit(); err != nil {
+	if err := page.FindByID("loginButton").Click(); err != nil {
 		return err
 	}
 
