@@ -28,13 +28,13 @@ func GetLoggedInCookies(id string, password string, selectCardNo string) ([]*htt
 		return nil, err
 	}
 
-	time.Sleep(5 * time.Second)
+	time.Sleep(10 * time.Second)
 
 	if err := login(*page, id, password); err != nil {
 		return nil, err
 	}
 
-	time.Sleep(5 * time.Second)
+	time.Sleep(10 * time.Second)
 
 	if err := selectCard(*page, selectCardNo); err != nil {
 		return nil, err
