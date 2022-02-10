@@ -52,6 +52,8 @@ func buildHeadlessDriver() *agouti.WebDriver {
 			"start-maximized",
 			"--disable-dev-shm-usage",
 			"--window-size=1920,1080",
+			"--ignore-ssl-errors=true",
+			"--ssl-protocol=any",
 		})
 	driver := agouti.ChromeDriver(options)
 
