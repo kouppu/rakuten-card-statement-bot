@@ -1,0 +1,13 @@
+version: '3'
+services:
+  app:
+    container_name: rakuten-card-statement-bot-app
+    build: .
+    volumes:
+      - ./:/app
+    environment:
+      - RAKUTEN_ID=${RAKUTEN_ID}
+      - RAKUTEN_PASSWORD=${RAKUTEN_PASSWORD}
+      - RAKUTEN_SELECT_CARD_NO=${RAKUTEN_SELECT_CARD_NO}
+      - LINE_CHANNEL_SECRET=${LINE_CHANNEL_SECRET}
+      - LINE_CHANNEL_TOKEN=${LINE_CHANNEL_TOKEN}
