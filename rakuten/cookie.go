@@ -3,7 +3,6 @@ package rakuten
 import (
 	"fmt"
 	"net/http"
-	"time"
 
 	"github.com/sclevine/agouti"
 )
@@ -28,13 +27,17 @@ func GetLoggedInCookies(id string, password string, selectCardNo string) ([]*htt
 		return nil, err
 	}
 
-	time.Sleep(10 * time.Second)
+	if err := page.Session().SetImplicitWait(10); err != nil {
+		return nil, err
+	}
 
 	if err := login(*page, id, password); err != nil {
 		return nil, err
 	}
 
-	time.Sleep(10 * time.Second)
+	if err := page.Session().SetImplicitWait(10); err != nil {
+		return nil, err
+	}
 
 	if err := selectCard(*page, selectCardNo); err != nil {
 		return nil, err
