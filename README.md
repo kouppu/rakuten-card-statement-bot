@@ -4,7 +4,7 @@
 
 ## Configuration
 
-`.env.example`を`.env`に変更し、内容編集する。  
+`.env.example`を`.env`に変更し、内容を編集する。  
 Heroku などのサービスで定義されている環境変数があれば、`.env`ではなくサービスの値が優先されて使用される。
 
 ### RAKUTEN_SELECT_CARD_NO
