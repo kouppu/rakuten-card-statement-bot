@@ -1,16 +1,18 @@
 # rakuten-card-statement-bot
 
-楽天カード明細情報を LINE に通知する BOT
+楽天カード明細情報をLINEに通知するBOT
 
 ## Configuration
+### LINE Messaging API のアクセス情報を設定
 
-`.env.example`を`.env`に変更し、内容を編集する。  
-Heroku などのサービスで定義されている環境変数があれば、`.env`ではなくサービスの値が優先されて使用される。
+`.env.example`をコピーし、`.env`を作成。  
+作成した`.env`に、アクセス情報を記述してください。  
+_Heroku などのサービスで、定義されている環境変数があれば、サービスの値が優先されて使用されます。_
 
-### RAKUTEN_SELECT_CARD_NO
+#### RAKUTEN_SELECT_CARD_NO
 
 取得したいカードのセレクトボックスの順番を記述する。  
-1 枚目なら`1`、2 枚目なら`2`を記述する。  
+1枚目なら**1**、2枚目なら**2**を記述する。  
 
 ![カード選択](https://raw.githubusercontent.com/suhrr/readme-images/master/rakuten-card-statement-bot/select_card.png)
 
