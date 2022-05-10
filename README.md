@@ -11,8 +11,8 @@ _Heroku などのサービスで、定義されている環境変数があれば
 
 #### RAKUTEN_SELECT_CARD_NO
 
-取得したいカードのセレクトボックスの順番を記述する。  
-1枚目なら**1**、2枚目なら**2**を記述する。  
+取得したいカードのセレクトボックスの順番を記述してください。  
+1枚目なら**1**、2枚目なら**2**を記述してください。  
 
 ![カード選択](https://raw.githubusercontent.com/suhrr/readme-images/master/rakuten-card-statement-bot/select_card.png)
 
