@@ -47,7 +47,7 @@ func main() {
 	}
 
 	m := message.NewMonthlyTotalMessage(rakuten.GetMonthlyTotal(s))
-	if _, err := bot.BroadcastMessage(m).Do(); err != nil {
+	if _, err := bot.BroadcastMessage(linebot.NewTextMessage(m)).Do(); err != nil {
 		log.Fatal(err)
 	}
 
